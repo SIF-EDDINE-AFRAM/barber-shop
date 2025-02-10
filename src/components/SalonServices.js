@@ -1,59 +1,13 @@
-import React from 'react'
-
-function SalonServices() {
-  return (
-    <section className="max-w-xl">
-        <h2 className="text-center text-3xl py-4 text-red-800">Salon Services</h2>
-        <ul className="max-w-6xl grid grid-cols-1 grid-rows-1 gap-2 text-center mx-auto">
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Wash, Cut & Style</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$50.00+</p>
-        </div>
-        <p>Longer style haircuts with blowdry and styling.</p>
-        </div>
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Salon Cut - 13 & Under</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$31.00+</p>
-        </div>
-        <p>Longer style haircuts with quick blowdry and styling.</p>
-        </div>
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Bang Trim</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$22.00+</p>
-        </div>
-        </div>
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Shampoo & Blowdry</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$40.00+</p>
-        </div>
-        <p>$1/min</p>
-        </div>
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Wash, Cut & Style - Curly Hair</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$60.00+</p>
-        </div>
-        <p>If your name is Eva this haircut is 100% free.</p>
-        </div>
-        <div className="text-left">
-        <div className="flex items-end">
-        <h2 className="font-bold min-w-fit">Dry Cut - Curly Hair</h2>
-        <div className="h-px w-full mb-1 bg-neutral-400"></div>
-        <p>$50.00+</p>
-        </div>
-        </div>
-        </ul>
-      </section>
-  )
-}
-
-export default SalonServices
+ const SalonServices = [
+  { id: "1", name: "Wash, Cut & Style", price: "$50.00+" },
+  { id: "2", name: "Salon Cut - 13 & Under", price: "$31.00+" },
+  { id: "3", name: "Blow Dry & Style", price: "$40.00+" },
+  { id: "4", name: "Color Touch Up", price: "$60.00+" },
+  { id: "5", name: "Full Color", price: "$80.00+" },
+  { id: "6", name: "Highlights", price: "$90.00+" },
+  { id: "7", name: "Deep Conditioning Treatment", price: "$25.00+" },
+  { id: "8", name: "Hair Straightening", price: "$75.00+" },
+  { id: "9", name: "Updo Hairstyling", price: "$55.00+" },
+  { id: "10", name: "Keratin Treatment", price: "$120.00+" }
+];
+export default SalonServices;

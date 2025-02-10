@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/logo.png'
+import logo from '../images/logo.jpg'
 import { Link } from 'react-router-dom'
 
 function Footer() {
@@ -7,7 +7,7 @@ function Footer() {
     <div className='bg-neutral-950 relative p-8 nav text-neutral-300 flex items-center justify-evenly'>
         
         <ul className='flex gap-1 flex-col items-center justify-center'>
-        <img className='w-40' src={logo}></img>
+        {/* <img className='w-40' src={logo}></img> */}
           <Link to='/reservations'>Make A Reservation</Link>
           <Link to='/contact'>Contact Us</Link>
           <Link to='/reservations'>About Us</Link>

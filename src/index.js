@@ -14,6 +14,11 @@ import Reservations from './pages/Reservations';
 import Footer from './components/Footer';
 import TeamMember from './pages/TeamMember';
 import Login from './pages/login';
+import Dashboard from './pages/Dashboard';
+import Users from './components/Users';
+import Servicesdash from './components/Servicesdash';
+import SchedulePage from './components/Rendezvous';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,7 +33,17 @@ root.render(
     <Route path='/team/:id' Component={TeamMember}></Route>
     <Route path='/reservations' Component={Reservations}></Route>
     <Route path='*' Component={NotFound}></Route>
+    <Route path='/dashboard' element={<Dashboard />}/>
     <Route path='/login' Component={Login}/>
+
+      <Route path="/dashboard" element={<Dashboard />}>
+        {/* <Route index element=<h2>Welcome to Dashboard</h2> /> */}
+        <Route path="users" element={<Users />} />
+        <Route path="servicesdash" element={<Servicesdash />} />
+        <Route path="rendezvous" element={<SchedulePage />} />
+      </Route>
+
+
   </Routes>
   <Footer/>
   </BrowserRouter>
