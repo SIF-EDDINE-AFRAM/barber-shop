@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import BarberServices from '../components/BarberServices'
-import SalonServices from '../components/SalonServices'
+
 import scrollToTop from '../helpers/scrollToTop'
+import Barberser from '../components/Barberser'
+import Salonser from '../components/Salonser'
 
 function Services() {
   useEffect(() => {
@@ -14,8 +15,8 @@ function Services() {
             <h2 className="absolute h-full top-0 flex items-center left-1/2 -translate-x-1/2 text-center py-4 text-6xl text-red-800">Our Services</h2>
         </div>
         <section className="w-xl flex flex-col md:flex-row mx-auto justify-center items-center gap-12 px-4 pb-4">
-        <BarberServices/>
-        <SalonServices/>
+        <Barberser/>
+        <Salonser/>
       </section>
     </div>
   )

@@ -45,7 +45,8 @@ function Nav() {
     {/* <img src={logo} className="px-2 w-44 h-24"></img> */}
     </Link>
     <ul className="md:flex absolute items-center left-1/2 -translate-x-1/2 gap-8 text-xl hidden">
-    
+    <Link to='/home'>Home</Link>
+
       <Link to='/services'>Services</Link>
       <Link to='/about'>About</Link>
       <Link to='/team'>Our Team</Link>

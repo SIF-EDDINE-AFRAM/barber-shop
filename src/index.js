@@ -25,7 +25,7 @@ root.render(
   <BrowserRouter>
   <Nav/>
   <Routes>
-    <Route path='/' Component={App}></Route>
+    <Route path='/home' Component={App}></Route>
     <Route path='/services' Component={Services}></Route>
     <Route path='/contact' Component={Contact}></Route>
     <Route path='/about' Component={About}></Route>
@@ -34,7 +34,7 @@ root.render(
     <Route path='/reservations' Component={Reservations}></Route>
     <Route path='*' Component={NotFound}></Route>
     <Route path='/dashboard' element={<Dashboard />}/>
-    <Route path='/login' Component={Login}/>
+    <Route path='/' Component={Login}/>
 
       <Route path="/dashboard" element={<Dashboard />}>
         {/* <Route index element=<h2>Welcome to Dashboard</h2> /> */}
