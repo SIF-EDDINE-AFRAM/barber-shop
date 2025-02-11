@@ -4,7 +4,7 @@ const employee_router = express.Router()
 
 employee_router.get("/employees", get_employees)
 employee_router.post("/employees", add_employees)
-employee_router.put("/employees", modify_employees)
+employee_router.put("/employees/:id", modify_employees)
 employee_router.delete("/employees/:_id", delete_employees)
 
 
