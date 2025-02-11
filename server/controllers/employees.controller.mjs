@@ -23,7 +23,8 @@ export async function add_employees(req, res) {
 
 export async function modify_employees(req, res) {
     try {
-        const { _id , name} = req.body
+        const {name} = req.body
+        const {_id} = req.params
         const modified = await Employee.updateOne({_id}, {name})
         if(modified.matchedCount) res.json({_id, name})
         else res.status(404).json("not found")

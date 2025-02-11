@@ -1,6 +1,5 @@
 import { Service } from "../db.mjs";
 
-// get all the services from database
 export const getService = async (req, res) => {
     try {
         const services = await Service.find()
@@ -10,7 +9,6 @@ export const getService = async (req, res) => {
     }
 }
 
-// add service from database
 export const addService = async (req, res) => {
     const service = new Service({name : req.body.name})
     try {
@@ -34,7 +32,6 @@ export const updateService = async (req, res) => {
     }
 }
 
-// delete a name of service from database
 export const deleteService = async (req, res) => {
     try {
         const service = await Service.findById(req.params.id)
