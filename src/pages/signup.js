@@ -16,7 +16,7 @@ function Signup() {
     }
     try {
       const response = await axios.post(
-        'http://localhost:3010/signup',
+        `http://localhost:${process.env.REACT_APP_BACKEND_PORT}/signup`,
         { email, password },
         { withCredentials: true }
       );

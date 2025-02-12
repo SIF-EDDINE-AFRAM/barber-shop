@@ -9,7 +9,7 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:3011", 
+    origin: "http://localhost:"+process.env.FRONT_PORT, 
     credentials: true
   }));
 

@@ -15,8 +15,10 @@ function Login() {
       return
     }
     try {
+      console.log(process.env.REACT_APP_BACKEND_PORT);
+      
       const response = await axios.post(
-        'http://localhost:3010/login',
+        `http://localhost:${process.env.REACT_APP_BACKEND_PORT}/login`,
         { email, password },
         { withCredentials: true }
       );
@@ -32,7 +34,6 @@ function Login() {
       console.error('Login error:', error);
     }
   };
-
   return (
     <div className='text-red-800 max-w-full flex justify-center overflow-hidden py-4'>
       <form className='flex text-2xl flex-col items-center px-4' onSubmit={handleSubmit}>
