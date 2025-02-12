@@ -37,6 +37,8 @@ export async function add_schedule(req, res) {
 //     }
 // }
 export async function delete_schedule(req, res) {
+    const { _id } = req.params
+    
     try {
         const { _id } = req.params
         const deleted = await Schedule.deleteOne({_id})
