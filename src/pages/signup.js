@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -16,14 +16,14 @@ function Login() {
     }
     try {
       const response = await axios.post(
-        'http://localhost:3010/login',
+        'http://localhost:3010/signup',
         { email, password },
         { withCredentials: true }
       );
 
       if (response.status === 200 && response.data === "good") {
-        setMessage("Successfully logged in");
-        navigate('/'); 
+        setMessage("Successfully signup in");
+        navigate('/login'); 
       } else {
         setMessage("Login failed. Please check your credentials.");
       }
@@ -38,7 +38,7 @@ function Login() {
       <form className='flex text-2xl flex-col items-center px-4' onSubmit={handleSubmit}>
         <div className='flex py-4 flex-col gap-2 px-3'>
           <div className='flex flex-col gap-2 items-center'>
-            <div className='font-bold text-xl'>Login</div>
+            <div className='font-bold text-xl'>Signup</div>
             <div className='border border-red-800 rounded-lg p-10'>
               <div className='font-bold text-left'>Email:</div>
               <input
@@ -63,7 +63,7 @@ function Login() {
         </div>
         <div className="flex flex-col gap-4 w-80 py-4">
           <button className='bg-red-800 nav text-neutral-300 px-4 py-2' type="submit">
-            Login
+            Signup
           </button>
         </div>
         {message && <p className='max-w-xl text-center py-4'>{message}</p>}
@@ -72,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

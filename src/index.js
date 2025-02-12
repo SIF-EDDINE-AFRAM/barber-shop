@@ -18,6 +18,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './components/Users';
 import Servicesdash from './components/Servicesdash';
 import SchedulePage from './components/Rendezvous';
+import Signup from './pages/signup';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,7 +26,7 @@ root.render(
   <BrowserRouter>
   <Nav/>
   <Routes>
-    <Route path='/home' Component={App}></Route>
+    <Route path='/' Component={App}></Route>
     <Route path='/services' Component={Services}></Route>
     <Route path='/contact' Component={Contact}></Route>
     <Route path='/about' Component={About}></Route>
@@ -34,7 +35,8 @@ root.render(
     <Route path='/reservations' Component={Reservations}></Route>
     <Route path='*' Component={NotFound}></Route>
     <Route path='/dashboard' element={<Dashboard />}/>
-    <Route path='/' Component={Login}/>
+    <Route path='/login' Component={Login}/>
+    <Route path='/signup' Component={Signup}/>
 
       <Route path="/dashboard" element={<Dashboard />}>
         {/* <Route index element=<h2>Welcome to Dashboard</h2> /> */}

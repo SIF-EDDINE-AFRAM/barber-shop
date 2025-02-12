@@ -16,7 +16,17 @@ export default async function Login(req, res) {
     res.cookie("token", token, { httpOnly: true, secure: true, maxAge: 3600000, sameSite: "Strict" })
     res.send("good")
 }
-
+export async function Signup(req, res) {
+    const { email, password } = req.body
+    console.log(email, "X")
+    const user = await User.findOne({email})
+    if (user) {
+       return res.status(400).send("already exists")
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await User.insertOne({email, password: hashedPassword})    
+    res.send("signed")
+}
 
 
 export const verifyToken = (req, res, next) => {
