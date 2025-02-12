@@ -21,7 +21,7 @@ function Signup() {
         { withCredentials: true }
       );
 
-      if (response.status === 200 && response.data === "good") {
+      if (response.status === 200) {
         setMessage("Successfully signup in");
         navigate('/login'); 
       } else {

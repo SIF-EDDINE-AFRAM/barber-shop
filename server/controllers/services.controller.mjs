@@ -21,8 +21,9 @@ export const addService = async (req, res) => {
 
 // update a name of service from database
 export const updateService = async (req, res) => {
+    const {_id} = req.body
     try {
-        const service = await Service.findById(req.params.id)
+        const service = await Service.findById(_id)
         if (!service) return res.status(404).json({ message: "not found" })
         service.name = req.body.name
         const updatedService = await service.save()

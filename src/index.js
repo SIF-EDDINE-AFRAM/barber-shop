@@ -38,12 +38,12 @@ root.render(
     <Route path='/login' Component={Login}/>
     <Route path='/signup' Component={Signup}/>
 
-      <Route path="/dashboard" element={<Dashboard />}>
-        {/* <Route index element=<h2>Welcome to Dashboard</h2> /> */}
-        <Route path="users" element={<Users />} />
-        <Route path="servicesdash" element={<Servicesdash />} />
-        <Route path="rendezvous" element={<SchedulePage />} />
-      </Route>
+    <Route path="/dashboard" element={<Dashboard />}>
+      {/* <Route index element=<h2>Welcome to Dashboard</h2> /> */}
+    <Route path="users" element={<Users />} />
+    <Route path="servicesdash" element={<Servicesdash />} />
+    <Route path="rendezvous" element={<SchedulePage />} />
+    </Route>
 
 
   </Routes>

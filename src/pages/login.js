@@ -25,7 +25,7 @@ function Login() {
 
       if (response.status === 200 && response.data === "good") {
         setMessage("Successfully logged in");
-        navigate('/'); 
+        navigate('/dashboard'); 
       } else {
         setMessage("Login failed. Please check your credentials.");
       }

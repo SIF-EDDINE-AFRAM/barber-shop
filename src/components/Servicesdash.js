@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeleteIcon from '../images/delete-svgrepo-com.svg';
 import DownloadIcon from '../images/edit-3-svgrepo-com.svg';
 import CloseIcon from '../images/close-circle-svgrepo-com.svg';
+import axios from "axios";
 
 export default function Servicesdash() {
-  const [services] = useState([
+  const [services, set_services] = useState([
     { _id: "1", name: "Service 1" },
     { _id: "2", name: "Service 2" },
     { _id: "3", name: "Service 3" },
   ]);
-
+  async function get_services(){
+   try {
+     const response = await axios.get(`${`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/services`}`, { withCredentials: true });
+     console.log("S",response.data);
+     
+     set_services(response.data);
+   } catch (error) {
+     console.error("Error fetching employees:", error);
+   }
+ };
+  useEffect(()=>{
+    get_services()
+  }, [])
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
@@ -85,6 +98,23 @@ export default function Servicesdash() {
                       />
                     </a>
                     <a
+                      onClick={()=>{
+                        const API_URL = "http://localhost:3010/services"; 
+
+                        const handleEditEmployee = async () => {
+                          try {
+                            await axios.delete(
+                              API_URL+'/'+service._id,
+                              { withCredentials: true }
+                            );
+                            get_services(); 
+                            setIsModalOpen(false);
+                          } catch (error) {
+                            console.error("Error editing employee:", error);
+                          }
+                        };
+                        handleEditEmployee()
+                      }}
                       className="inline-block px-6 py-2.5 font-medium transition-colors ml-2"
                     >
                       <img
@@ -121,6 +151,24 @@ export default function Servicesdash() {
                   Cancel
                 </button>
                 <button
+                  onClick={()=>{
+                    const API_URL = "http://localhost:3010/services"; 
+
+                    const handleEditEmployee = async () => {
+                      try {
+                        await axios.put(
+                          API_URL,
+                          { _id: selectedService._id, name: editedName },
+                          { withCredentials: true }
+                        );
+                        get_services(); 
+                        setIsModalOpen(false);
+                      } catch (error) {
+                        console.error("Error editing employee:", error);
+                      }
+                    };
+                    handleEditEmployee()
+                  }}
                   className="bg-green-800 text-white px-4 py-2 rounded hover:bg-blue-600 focus:ring-2 focus:ring-blue-400"
                 >
                   Save
@@ -156,6 +204,19 @@ export default function Servicesdash() {
 
                   <button
                     onClick={() => {
+                      async function get_services(){
+                        try {
+                          const response = await axios.post(
+                            `http://localhost:${process.env.REACT_APP_BACKEND_PORT}/services`,
+                            { name: editedName },
+                            { withCredentials: true }
+                          );
+                          set_services((prev)=>([...prev, response.data]));
+                        } catch (error) {
+                          console.error("Error fetching employees:", error);
+                        }
+                      };
+                      get_services()
                       closeModal();
                     }}
                     className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white"

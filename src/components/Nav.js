@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
 import logo from '../images/logo.jpg';
+import Cookies from "js-cookie";
+import axios from 'axios';
 
 function Nav() {
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
     const [mobileMenuShowing, setMobileMenuShowing] = useState(false)
     const [scrollDir, setScrollDir] = useState("scrolling up");
-  
+
+
   useEffect(() => {
     const threshold = 75;
     let lastScrollY = window.scrollY;
@@ -51,8 +54,6 @@ function Nav() {
       <Link to='/about'>About</Link>
       <Link to='/team'>Our Team</Link>
       <Link to='/contact'>Contact</Link>
-      <Link to='/login'>Login</Link>
-      <Link to='/signup'>Signup</Link>
       </ul>
       <button style={scrollDir === 'scrolling up' ? {visibility: 'visible'} : {visibility: 'hidden'}} onClick={() => {setMobileMenuActive(!mobileMenuActive); setMobileMenuShowing(true)}}>
       <div className="hb w-8 h-8 md:hidden">

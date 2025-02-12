@@ -9,7 +9,7 @@ import bcrypt from 'bcrypt'
 import { User } from "./db.mjs"
 const router = express.Router() 
 router.post('/login',Login)
-router.get('/test',verifyToken,(req,res)=>res.send('verified_test'))
+router.get('/check_cookie',verifyToken,(req,res)=>res.send('verified_test'))
 router.post("/signup", Signup)
 
 router.use(employee_router)

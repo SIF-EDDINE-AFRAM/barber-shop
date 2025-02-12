@@ -13,7 +13,8 @@ export default async function Login(req, res) {
         return res.status(404).send("")
     }
     const token = jwt.sign({ email }, process.env.KEY, { expiresIn: '1h' })
-    res.cookie("token", token, { httpOnly: true, secure: true, maxAge: 3600000, sameSite: "Strict" })
+    // Strict
+    res.cookie("token", token, { httpOnly: true, secure: false, maxAge: 3600000, sameSite: "Strict" })
     res.send("good")
 }
 export async function Signup(req, res) {
