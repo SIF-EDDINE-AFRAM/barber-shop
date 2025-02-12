@@ -26,7 +26,7 @@ export const Employee = mongoose.model("Employee", employee_schema)
 const schedule_schema = new mongoose.Schema({
     employee : { type : String, required: true},
     service : { type : String, required: true},
-    date : { type : Date} ,
+    date : { type : String} ,
     time : { type : String }
 })
 

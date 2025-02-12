@@ -54,7 +54,7 @@ function BarberShopReservation() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(selectedDate , selectedService , selectedStylist , selectedTime);
-    console.log( selectedStylist , selectedTime);
+    console.log( selectedDate);
     
     if (selectedDate && selectedService && selectedStylist && selectedTime) {
       const donnesreservation = { employee: selectedStylist, service: selectedService, date: selectedDate, time: selectedTime }
