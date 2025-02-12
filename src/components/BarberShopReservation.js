@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ServicesSelect from './ServicesSelect';
+import axios from 'axios';
 
 // Custom select component
 
 
 function BarberShopReservation() {
-  const [selectedStylist, setSelectedStylist] = useState('Sierra');
+  const [selectedStylist, setSelectedStylist] = useState('Hamdi');
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedService, setSelectedService] = useState('Signature Cut & Style');
@@ -50,8 +51,26 @@ function BarberShopReservation() {
     currentTime.setMinutes(currentTime.getMinutes() + 30);
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    // console.log(selectedDate , selectedService , selectedStylist , selectedTime);
+    console.log( selectedStylist , selectedTime);
+    
+    if (selectedDate && selectedService && selectedStylist && selectedTime) {
+      const donnesreservation = { employee: selectedStylist, service: selectedService, date: selectedDate, time: selectedTime }
+      console.log(donnesreservation);
+      
+      try {
+        const API_URL = "http://localhost:3010/schedules"; 
+        await axios.post(API_URL, donnesreservation)
+        setMessage('Successfully booked')
+      }
+      catch (error) {
+        setMessage(error)
+      }
+    }
+  
+    
     if(selectedDate && selectedService && selectedStylist && selectedTime)
     setMessage(`Successfully Booked Reservation with ${selectedStylist} for ${selectedService} on ${selectedDate} at ${selectedTime}. We will be reaching out to you shortly!`);
     // You can implement your booking logic here
@@ -82,9 +101,9 @@ function BarberShopReservation() {
       <div className='flex flex-col gap-2 items-center'>
           <div className='font-bold'>Stylist & Service:</div>
           <select required={true} value={selectedStylist} onChange={(e) => handleStylistChange(e.target.value)} className='border w-80 border-red-800 bg-neutral-300'>
-            <option value="Sierra">hamdi</option>
-            <option value="Billy">elwafi</option>
-            <option value="Jonny">sif Eddine</option>
+            <option value="hamdi">hamdi</option>
+            <option value="elwafi">elwafi</option>
+            <option value="sif Eddine">sif Eddine</option>
           </select>
           <ServicesSelect setSelectedService={setSelectedService}/>
         </div>

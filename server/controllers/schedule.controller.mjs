@@ -12,8 +12,9 @@ export async function get_schedules(req, res) {
 
 export async function add_schedule(req, res) {
     try {
-        const { employee, services, date, time } = req.body
-        const schedule = await Schedule.insertOne({employee, services, date, time})
+        const { employee, service, date, time } = req.body
+        console.log('a');
+        const schedule = await Schedule.insertOne({employee, service, date, time})
         res.json(schedule)
     } catch (error) {
         console.log(error);

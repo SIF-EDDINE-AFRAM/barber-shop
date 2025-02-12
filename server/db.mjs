@@ -27,10 +27,7 @@ const schedule_schema = new mongoose.Schema({
     employee : { type : String, required: true},
     service : { type : String, required: true},
     date : { type : Date} ,
-    time : {
-        start : {type : Number, min: 8, max : 22, required: true},
-        end : {type : Number, min: 9, max : 23, required: true}
-    }
+    time : { type : String }
 })
 
 export const Schedule = mongoose.model("Schedule", schedule_schema)
